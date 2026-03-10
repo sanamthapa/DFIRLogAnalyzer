@@ -19,7 +19,11 @@ namespace DFIRLogAnalyzer.Models
         public bool RuleMatched { get; set; }
         public double AnomalyScore { get; set; }
 
+        public double FinalRiskScore { get; set; }
+        public List<string> DetectionReasons { get; set; } = new();
+
         // Forensic metadata
+     
         public string EvidenceHash { get; set; } = string.Empty;
         public string SourceSystem { get; set; } = "LogAnalyzer";
     }

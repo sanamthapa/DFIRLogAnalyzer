@@ -3,40 +3,8 @@ using DFIRLogAnalyzer.Detection;
 using DFIRLogAnalyzer.Forensics;
 using DFIRLogAnalyzer.LogIngestion;
 using DFIRLogAnalyzer.Preprocessing;
+using DFIRLogAnalyzer.Risk;
 using System.Diagnostics;
-
-
-//var reader = new LogReader();
-//var logs = reader.ReadFromFile("Data/logs.json");
-
-//Console.WriteLine($"[INFO] Loaded {logs.Count} raw logs.");
-
-//var normalizer = new Normalizer();
-//normalizer.Normalize(logs);
-
-//Console.WriteLine("[INFO] Logs normalized successfully.");
-
-//var ruleEngine = new RuleEngine();
-//ruleEngine.ApplyRules(logs);
-
-//Console.WriteLine("[INFO] Rule-based detection completed.");
-
-//var anomalyDetector = new AnomalyDetector();
-//anomalyDetector.CalculateAnomalyScores(logs);
-
-//var correlator = new HybridCorrelator();
-
-//Console.WriteLine("[INFO] Hybrid correlation completed.");
-
-//foreach (var log in logs)
-//{
-//    var incident = correlator.IsSecurityIncident(log);
-
-//    Console.WriteLine(
-//        $"{log.Timestamp} | {log.EventType} | {log.User} | " +
-//        $"Rule={log.RuleMatched} | Anomaly={log.AnomalyScore:F2} | Incident={incident}"
-//    );
-//}
 
 var stopwatch = Stopwatch.StartNew();
 int totalProcessed = 0;
@@ -45,9 +13,9 @@ var batchReader = new BatchLogReader();
 var normalizer = new Normalizer();
 var ruleEngine = new RuleEngine();
 var anomalyDetector = new AnomalyDetector();
-var correlator = new HybridCorrelator();
 var alertService = new AlertService();
 var evidenceStore = new EvidenceStore();
+var riskEngine = new RiskEngine();
 
 const int BatchSize = 1000;
 
@@ -59,9 +27,15 @@ foreach (var batch in batchReader.ReadBatches("Data/logs.ndjson", BatchSize))
 
     foreach (var log in batch)
     {
-        if (correlator.IsSecurityIncident(log))
+        var reasons = new List<string>();
+        double risk = riskEngine.CalculateRisk(log, reasons);
+
+        if (risk >= 0.7)
         {
             var incident = alertService.CreateIncident(log);
+            incident.FinalRiskScore = risk;
+            incident.DetectionReasons = reasons;
+
             evidenceStore.SaveIncident(incident);
         }
     }
@@ -73,5 +47,4 @@ stopwatch.Stop();
 
 Console.WriteLine($"[METRICS] Total Logs Processed: {totalProcessed}");
 Console.WriteLine($"[METRICS] Total Time (ms): {stopwatch.ElapsedMilliseconds}");
-Console.WriteLine($"[METRICS] Throughput (logs/sec): " +
-    $"{totalProcessed / (stopwatch.ElapsedMilliseconds / 1000.0):F2}");
+Console.WriteLine($"[METRICS] Throughput (logs/sec): {totalProcessed / (stopwatch.ElapsedMilliseconds / 1000.0):F2}");
