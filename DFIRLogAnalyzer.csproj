@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\logs.json">
+    <None Update="Data\logs.ndjson">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
