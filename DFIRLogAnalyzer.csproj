@@ -9,6 +9,12 @@
 
   <ItemGroup>
     <Folder Include="Correlation\" />
+    <Folder Include="docs\" />
+    <Folder Include="datasets\" />
+    <Folder Include="sample-logs\" />
+    <Folder Include="rules\" />
+    <Folder Include="tests\" />
+    <Folder Include="src\" />
   </ItemGroup>
 
   <ItemGroup>

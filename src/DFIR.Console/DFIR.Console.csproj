@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DFIR.Application\DFIR.Application.csproj" />
+    <ProjectReference Include="..\DFIR.Correlation\DFIR.Correlation.csproj" />
+    <ProjectReference Include="..\DFIR.Infrastructure\DFIR.Infrastructure.csproj" />
+    <ProjectReference Include="..\DFIR.Reporting\DFIR.Reporting.csproj" />
+    <ProjectReference Include="..\DFIR.RuleEngine\DFIR.RuleEngine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Menus\" />
+    <Folder Include="Runner\" />
+  </ItemGroup>
+
+</Project>

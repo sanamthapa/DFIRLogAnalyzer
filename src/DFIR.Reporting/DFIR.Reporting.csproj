@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DFIR.Application\DFIR.Application.csproj" />
+    <ProjectReference Include="..\DFIR.Domain\DFIR.Domain.csproj" />
+    <ProjectReference Include="..\DFIR.Shared\DFIR.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Html\" />
+    <Folder Include="Csv\" />
+    <Folder Include="Templates\" />
+    <Folder Include="Pdf\" />
+  </ItemGroup>
+
+</Project>
