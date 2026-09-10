@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DFIR.Application\DFIR.Application.csproj" />
+    <ProjectReference Include="..\DFIR.Correlation\DFIR.Correlation.csproj" />
+    <ProjectReference Include="..\DFIR.Infrastructure\DFIR.Infrastructure.csproj" />
+    <ProjectReference Include="..\DFIR.Reporting\DFIR.Reporting.csproj" />
+    <ProjectReference Include="..\DFIR.RuleEngine\DFIR.RuleEngine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Endpoints\" />
+    <Folder Include="Authentication\" />
+    <Folder Include="Swagger\" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+	</ItemGroup>
+
+</Project>

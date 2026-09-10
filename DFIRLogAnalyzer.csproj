@@ -1,20 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Correlation\" />
-  </ItemGroup>
+	<!-- Keep the legacy project isolated from the new architecture -->
+	<ItemGroup>
+		<Compile Remove="src\**" />
+		<EmbeddedResource Remove="src\**" />
+		<None Remove="src\**" />
+		<Content Remove="src\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="Data\logs.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Correlation\" />
+		<Folder Include="docs\" />
+		<Folder Include="datasets\" />
+		<Folder Include="sample-logs\" />
+		<Folder Include="rules\" />
+		<Folder Include="tests\" />
+		<Folder Include="src\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Data\logs.ndjson">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>
