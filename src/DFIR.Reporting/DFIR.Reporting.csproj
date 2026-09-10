@@ -15,6 +15,7 @@
   <ItemGroup>
     <Folder Include="Html\" />
     <Folder Include="Csv\" />
+    <Folder Include="Json\" />
     <Folder Include="Templates\" />
     <Folder Include="Pdf\" />
   </ItemGroup>

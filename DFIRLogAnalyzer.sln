@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36811.4
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12201.205 stable
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DFIRLogAnalyzer", "DFIRLogAnalyzer.csproj", "{A938F8D9-4F3E-4123-A43B-650C0C35B845}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DFIR.Domain", "src\DFIR.Domain\DFIR.Domain.csproj", "{DECBD442-D9AA-4BCB-9878-6324A8FFDD27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DFIR.Shared", "src\DFIR.Shared\DFIR.Shared.csproj", "{19C47925-D72A-4196-93FE-EE8B94B518CA}"
@@ -31,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A938F8D9-4F3E-4123-A43B-650C0C35B845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A938F8D9-4F3E-4123-A43B-650C0C35B845}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A938F8D9-4F3E-4123-A43B-650C0C35B845}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A938F8D9-4F3E-4123-A43B-650C0C35B845}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DECBD442-D9AA-4BCB-9878-6324A8FFDD27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DECBD442-D9AA-4BCB-9878-6324A8FFDD27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DECBD442-D9AA-4BCB-9878-6324A8FFDD27}.Release|Any CPU.ActiveCfg = Release|Any CPU

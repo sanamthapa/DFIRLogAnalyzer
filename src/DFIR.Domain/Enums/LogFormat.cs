@@ -8,13 +8,13 @@ namespace DFIR.Domain.Enums
 {
     public enum LogFormat
     {
-        EVTX,
-        Syslog,
-        JSON,
-        CSV,
-        XML,
-        CEF,
-        LEEF,
-        PlainText
+        Unknown = 0,
+        Json = 1,
+        Ndjson = 2,
+        Csv = 3,
+        Xml = 4,
+        Syslog = 5,
+        WindowsEventLog = 6,
+        Pcap = 7
     }
 }
